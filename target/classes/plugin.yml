@@ -1,0 +1,4 @@
+name: SMItems
+version: 1.0.0
+main: smitems.SMItems
+api-version: 1.13
