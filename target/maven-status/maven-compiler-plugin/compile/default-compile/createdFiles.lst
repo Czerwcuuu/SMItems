@@ -1,4 +1,6 @@
-smitems\util\GunpowderUtil.class
 smitems\SMItems.class
+smitems\events\SpawnerPlaceEvent.class
+smitems\util\GunpowderUtil.class
 smitems\util\VillagerEggUtil.class
 smitems\util\ChaosSwordUtil.class
+smitems\util\SpawnerUtil.class
