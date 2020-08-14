@@ -2,11 +2,9 @@ package smitems;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import smitems.events.CheckCreativeEvent;
 import smitems.events.SpawnerPlaceEvent;
-import smitems.util.ChaosSwordUtil;
-import smitems.util.GunpowderUtil;
-import smitems.util.SpawnerUtil;
-import smitems.util.VillagerEggUtil;
+import smitems.util.*;
 
 import java.util.logging.Logger;
 
@@ -23,9 +21,10 @@ public final class SMItems extends JavaPlugin {
         // Plugin startup logic
         plugin = this;
         GunpowderUtil.registerGunpowderRecipe();
-        ChaosSwordUtil.registerChaosSwordRecipe();
+        ExperienceBottleUtil.registerEbRecipe();
         SpawnerUtil.registerSpawnerRecipe();
         Bukkit.getPluginManager().registerEvents(new SpawnerPlaceEvent(),this);
+        Bukkit.getPluginManager().registerEvents(new CheckCreativeEvent(),this);
         //VillagerEggUtil.registerVillagerEggRecipe();
     }
 
@@ -33,6 +32,7 @@ public final class SMItems extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
         GunpowderUtil.unregisterGunpowderRecipe();
+        ExperienceBottleUtil.unregisterEbRecipe();
         ChaosSwordUtil.unregisterChaosSwordRecipe();
         SpawnerUtil.unregisterSpawnerRecipe();
         //VillagerEggUtil.unregisterVillagerEggRecipe();
