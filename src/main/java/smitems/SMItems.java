@@ -23,8 +23,10 @@ public final class SMItems extends JavaPlugin {
         GunpowderUtil.registerGunpowderRecipe();
         ExperienceBottleUtil.registerEbRecipe();
         SpawnerUtil.registerSpawnerRecipe();
+        BeaconCraftingUtil.registerBeaconRecipe();
         Bukkit.getPluginManager().registerEvents(new SpawnerPlaceEvent(),this);
         Bukkit.getPluginManager().registerEvents(new CheckCreativeEvent(),this);
+
         //VillagerEggUtil.registerVillagerEggRecipe();
     }
 
@@ -35,6 +37,7 @@ public final class SMItems extends JavaPlugin {
         ExperienceBottleUtil.unregisterEbRecipe();
         ChaosSwordUtil.unregisterChaosSwordRecipe();
         SpawnerUtil.unregisterSpawnerRecipe();
+        BeaconCraftingUtil.unregisterBeaconRecipe();
         //VillagerEggUtil.unregisterVillagerEggRecipe();
     }
 

@@ -1,5 +1,6 @@
 smitems\events\CheckCreativeEvent.class
 smitems\SMItems.class
+smitems\util\BeaconCraftingUtil.class
 smitems\util\ExperienceBottleUtil.class
 smitems\util\LogToFile.class
 smitems\events\SpawnerPlaceEvent.class
