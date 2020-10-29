@@ -24,7 +24,7 @@ public class ChaosSwordUtil {
 
         meta.setDisplayName("Miecz Chaosu");
         meta.setLore(Collections.singletonList("Miecz wykuty w czasach zielono-żółtej wojny"));
-        meta.addEnchant(Enchantment.DAMAGE_ALL,6,true);
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 6, true);
         villager.setItemMeta(meta);
 
         return villager;
@@ -34,9 +34,7 @@ public class ChaosSwordUtil {
         if (stack == null || stack.getType() != Material.DIAMOND_SWORD || !stack.hasItemMeta() || !stack.getItemMeta().hasDisplayName())
             return false;
 
-        else if (stack.getItemMeta().getDisplayName().equals("Miecz Chaosu")) return true;
-
-        else return false;
+        else return stack.getItemMeta().getDisplayName().equals("Miecz Chaosu");
     }
 
     public static boolean registerChaosSwordRecipe() {

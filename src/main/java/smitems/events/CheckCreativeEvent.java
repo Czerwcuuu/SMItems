@@ -11,16 +11,16 @@ import java.util.Date;
 
 public class CheckCreativeEvent implements Listener {
     @EventHandler
-    public void CheckEQ(InventoryCreativeEvent e){
+    public void CheckEQ(InventoryCreativeEvent e) {
         Material item = e.getCursor().getType();
         int ilosc = e.getCursor().getAmount();
         String itemname = item.toString();
         String name = e.getWhoClicked().getName();
         Date now = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        if(item != Material.AIR) {
+        if (item != Material.AIR) {
             LogToFile log = new LogToFile();
-            String sum =  "[" + format.format(now) + "]" + name + " ruszał przedmiot " + itemname + " w ilosci "+ilosc+" z CREATIVE";
+            String sum = "[" + format.format(now) + "]" + name + " ruszał przedmiot " + itemname + " w ilosci " + ilosc + " z CREATIVE";
             log.logToFile(sum);
         }
     }

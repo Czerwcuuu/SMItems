@@ -7,7 +7,6 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import smitems.SMItems;
@@ -19,27 +18,27 @@ public class BeaconCraftingUtil {
     }
 
     public static ItemStack createBeacon() {
-        ItemStack beacon = new ItemStack(Material.BEACON);
+        ItemStack netherstar = new ItemStack(Material.NETHER_STAR);
 
-        ItemMeta meta = beacon.getItemMeta();
+        ItemMeta meta = netherstar.getItemMeta();
         meta.setDisplayName("Beaconik");
-        beacon.setItemMeta(meta);
+        netherstar.setItemMeta(meta);
 
-        return beacon;
+        return netherstar;
     }
 
-    public static boolean registerBeaconRecipe() {
-        ItemStack beacon = BeaconCraftingUtil.createBeacon();
-        ItemStack A = new ItemStack(Material.ENCHANTED_BOOK);
-        EnchantmentStorageMeta AMeta = (EnchantmentStorageMeta) A.getItemMeta();
-        AMeta.addStoredEnchant(Enchantment.MENDING, 1, true);
-        RecipeChoice.ExactChoice mendingBook = new RecipeChoice.ExactChoice(A);
-
-        ShapedRecipe rec = new ShapedRecipe(BEACON_KEY,beacon);
-        rec.shape("AAA","AAA","AAA");
-        rec.setIngredient('A',mendingBook);
+    public static void registerBeaconRecipe() {
+        ItemStack mending = new ItemStack(Material.ENCHANTED_BOOK);
+        EnchantmentStorageMeta meta = (EnchantmentStorageMeta) mending.getItemMeta();
+        meta.addStoredEnchant(Enchantment.MENDING, 1, true);
+        mending.setItemMeta(meta);
 
 
+        RecipeChoice.ExactChoice mendingBook = new RecipeChoice.ExactChoice(mending);
+
+        ShapedRecipe rec = new ShapedRecipe(BEACON_KEY, createBeacon());
+        rec.shape("AAA", "AAA", "AAA");
+        rec.setIngredient('A', mendingBook);
 
 
         boolean success = Bukkit.addRecipe(rec);
@@ -48,7 +47,6 @@ public class BeaconCraftingUtil {
         else
             SMItems.getInstance().getLogger().fine("NIEPOMYSLNE dodanie przepisu na: " + BEACON_KEY.getNamespace() + ":" + BEACON_KEY.getKey());
 
-        return success;
     }
 
     public static boolean unregisterBeaconRecipe() {

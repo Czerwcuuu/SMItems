@@ -10,11 +10,14 @@ import java.util.logging.Logger;
 
 public final class SMItems extends JavaPlugin {
 
-    private final Logger logger = Logger.getLogger("SMItems");
+    private static SMItems plugin;
 
     //private static Config config;
+    private final Logger logger = Logger.getLogger("SMItems");
 
-    private static SMItems plugin;
+    public static SMItems getInstance() {
+        return plugin;
+    }
 
     @Override
     public void onEnable() {
@@ -24,8 +27,8 @@ public final class SMItems extends JavaPlugin {
         ExperienceBottleUtil.registerEbRecipe();
         SpawnerUtil.registerSpawnerRecipe();
         BeaconCraftingUtil.registerBeaconRecipe();
-        Bukkit.getPluginManager().registerEvents(new SpawnerPlaceEvent(),this);
-        Bukkit.getPluginManager().registerEvents(new CheckCreativeEvent(),this);
+        Bukkit.getPluginManager().registerEvents(new SpawnerPlaceEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new CheckCreativeEvent(), this);
 
         //VillagerEggUtil.registerVillagerEggRecipe();
     }
@@ -41,12 +44,8 @@ public final class SMItems extends JavaPlugin {
         //VillagerEggUtil.unregisterVillagerEggRecipe();
     }
 
-    public Logger getLogger(){
+    public Logger getLogger() {
         return logger;
-    }
-
-    public static SMItems getInstance(){
-        return plugin;
     }
 
 }

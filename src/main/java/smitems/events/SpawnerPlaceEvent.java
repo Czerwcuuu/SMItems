@@ -10,22 +10,20 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 
-import javax.swing.text.html.parser.Entity;
-
 public class SpawnerPlaceEvent implements Listener {
 
     @EventHandler
-    public void onSpawnerPlace(BlockPlaceEvent e){
+    public void onSpawnerPlace(BlockPlaceEvent e) {
         Block b = e.getBlockPlaced();
         ItemStack inh = e.getPlayer().getItemInHand();
-            if (b!=null && inh !=null){
-                if(b.getType()== Material.SPAWNER && inh.getType() == Material.SPAWNER){
-                    if(inh.getItemMeta().getDisplayName().equals("Spawner Życia")){
-                        setSpawner(b, EntityType.COW);
-                    }
+        if (b != null && inh != null) {
+            if (b.getType() == Material.SPAWNER && inh.getType() == Material.SPAWNER) {
+                if (inh.getItemMeta().getDisplayName().equals("Spawner Życia")) {
+                    setSpawner(b, EntityType.COW);
                 }
             }
         }
+    }
 
 
     public void setSpawner(Block block, EntityType ent) {

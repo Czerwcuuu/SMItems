@@ -8,20 +8,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class LogToFile {
-    public void logToFile(String message)
-    {
+    public void logToFile(String message) {
         SMItems plugin = SMItems.getInstance();
-        try
-        {
+        try {
             File dataFolder = plugin.getDataFolder();
-            if(!dataFolder.exists())
-            {
+            if (!dataFolder.exists()) {
                 dataFolder.mkdir();
             }
 
             File saveTo = new File(dataFolder, "data.txt");
-            if (!saveTo.exists())
-            {
+            if (!saveTo.exists()) {
                 saveTo.createNewFile();
             }
 
@@ -36,8 +32,7 @@ public class LogToFile {
 
             pw.close();
 
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
 
             e.printStackTrace();
 
