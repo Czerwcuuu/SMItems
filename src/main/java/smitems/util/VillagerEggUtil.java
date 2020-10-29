@@ -30,9 +30,7 @@ public class VillagerEggUtil {
         if (stack == null || stack.getType() != Material.CREEPER_HEAD || !stack.hasItemMeta() || !stack.getItemMeta().hasDisplayName())
             return false;
 
-        else if (stack.getItemMeta().getDisplayName().equals("Stylowy Villager")) return true;
-
-        else return false;
+        else return stack.getItemMeta().getDisplayName().equals("Stylowy Villager");
     }
 
     public static boolean registerVillagerEggRecipe() {
