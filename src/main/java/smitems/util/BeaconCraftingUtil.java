@@ -21,7 +21,7 @@ public class BeaconCraftingUtil {
         ItemStack netherstar = new ItemStack(Material.NETHER_STAR);
 
         ItemMeta meta = netherstar.getItemMeta();
-        meta.setDisplayName("Beaconik");
+        meta.setDisplayName("Gwiazda Netheru");
         netherstar.setItemMeta(meta);
 
         return netherstar;

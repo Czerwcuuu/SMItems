@@ -2,8 +2,9 @@ package smitems;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import smitems.events.CheckCreativeEvent;
-import smitems.events.SpawnerPlaceEvent;
+import smitems.events.ComposterBlockEvent;
+import smitems.events.SlimeChunkCheckerEvent;
+import smitems.perms.Perms;
 import smitems.util.*;
 
 import java.util.logging.Logger;
@@ -15,20 +16,16 @@ public final class SMItems extends JavaPlugin {
     //private static Config config;
     private final Logger logger = Logger.getLogger("SMItems");
 
-    public static SMItems getInstance() {
-        return plugin;
-    }
 
     @Override
     public void onEnable() {
         // Plugin startup logic
         plugin = this;
-        GunpowderUtil.registerGunpowderRecipe();
-        ExperienceBottleUtil.registerEbRecipe();
-        SpawnerUtil.registerSpawnerRecipe();
+        Perms.registerPermissions();
+        SlimeChunkCheckerUtil.registerRecipe();
         BeaconCraftingUtil.registerBeaconRecipe();
-        Bukkit.getPluginManager().registerEvents(new SpawnerPlaceEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new CheckCreativeEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new SlimeChunkCheckerEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new ComposterBlockEvent(), this);
 
         //VillagerEggUtil.registerVillagerEggRecipe();
     }
@@ -36,16 +33,17 @@ public final class SMItems extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        GunpowderUtil.unregisterGunpowderRecipe();
-        ExperienceBottleUtil.unregisterEbRecipe();
-        ChaosSwordUtil.unregisterChaosSwordRecipe();
-        SpawnerUtil.unregisterSpawnerRecipe();
+        Perms.unregisterPermissions();
+        SlimeChunkCheckerUtil.unregisterRecipe();
         BeaconCraftingUtil.unregisterBeaconRecipe();
         //VillagerEggUtil.unregisterVillagerEggRecipe();
     }
 
     public Logger getLogger() {
         return logger;
+    }
+    public static SMItems getInstance() {
+        return plugin;
     }
 
 }

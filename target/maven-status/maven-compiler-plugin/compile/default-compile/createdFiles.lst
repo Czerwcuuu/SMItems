@@ -1,10 +1,6 @@
-smitems\events\CheckCreativeEvent.class
 smitems\SMItems.class
 smitems\util\BeaconCraftingUtil.class
-smitems\util\ExperienceBottleUtil.class
-smitems\util\LogToFile.class
-smitems\events\SpawnerPlaceEvent.class
-smitems\util\GunpowderUtil.class
-smitems\util\VillagerEggUtil.class
-smitems\util\ChaosSwordUtil.class
-smitems\util\SpawnerUtil.class
+smitems\events\ComposterBlockEvent.class
+smitems\perms\Perms.class
+smitems\util\SlimeChunkCheckerUtil.class
+smitems\events\SlimeChunkCheckerEvent.class
