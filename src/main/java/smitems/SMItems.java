@@ -2,6 +2,7 @@ package smitems;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import smitems.events.BlockWrittenBookCraftingEvent;
 import smitems.events.ComposterBlockEvent;
 import smitems.events.SlimeChunkCheckerEvent;
 import smitems.perms.Perms;
@@ -26,6 +27,7 @@ public final class SMItems extends JavaPlugin {
         BeaconCraftingUtil.registerBeaconRecipe();
         Bukkit.getPluginManager().registerEvents(new SlimeChunkCheckerEvent(), this);
         Bukkit.getPluginManager().registerEvents(new ComposterBlockEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new BlockWrittenBookCraftingEvent(), this);
 
         //VillagerEggUtil.registerVillagerEggRecipe();
     }
