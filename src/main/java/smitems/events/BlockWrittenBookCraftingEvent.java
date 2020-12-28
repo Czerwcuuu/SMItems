@@ -13,15 +13,20 @@ public class BlockWrittenBookCraftingEvent implements Listener {
     @EventHandler
     public void craftItem(PrepareItemCraftEvent e) {
         Material itemType;
-        itemType = e.getRecipe().getResult().getType();
-        Byte itemData = e.getRecipe().getResult().getData().getData();
-        if(itemType== Material.WRITABLE_BOOK||itemType==Material.WRITTEN_BOOK && itemData==1) {
-            e.getInventory().setResult(new ItemStack(Material.AIR));
-            for(HumanEntity he:e.getViewers()) {
-                if(he instanceof Player) {
-                    ((Player)he).sendMessage(ChatColor.RED+"Niestety, nie możesz tego stworzyć!");
+        try{
+            itemType = e.getRecipe().getResult().getType();
+            Byte itemData = e.getRecipe().getResult().getData().getData();
+            if(itemType== Material.WRITABLE_BOOK||itemType==Material.WRITTEN_BOOK && itemData==1) {
+                e.getInventory().setResult(new ItemStack(Material.AIR));
+                for(HumanEntity he:e.getViewers()) {
+                    if(he instanceof Player) {
+                        ((Player)he).sendMessage(ChatColor.RED+"Niestety, nie możesz tego stworzyć!");
+                    }
                 }
             }
+        }
+        catch(NullPointerException ex){
+            return;
         }
     }
 }
