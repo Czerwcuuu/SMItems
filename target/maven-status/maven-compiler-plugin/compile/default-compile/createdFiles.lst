@@ -1,6 +1,5 @@
 smitems\SMItems.class
 smitems\util\BeaconCraftingUtil.class
-smitems\events\ComposterBlockEvent.class
 smitems\perms\Perms.class
 smitems\util\SlimeChunkCheckerUtil.class
 smitems\events\BlockWrittenBookCraftingEvent.class
